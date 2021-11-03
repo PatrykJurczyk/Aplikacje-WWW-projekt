@@ -10,6 +10,8 @@ echo "Zastosowanie metody include() <br/><br/>";
 echo 'Patryk Jurczyk' .$nr_indeksu. 'grupa' .$nrGrupy. '<br/><br/>'; 
 echo 'Zastosowanie metody include() <br/><br/>';
 
+// Include
+
 function foo()
 {
     include 'vars.php';
@@ -19,6 +21,8 @@ function foo()
 foo();
 
 echo '<br/><br/>';
+
+// require_once
 
 function foo1(){
     require_once('var.php');
@@ -36,6 +40,8 @@ foo2();
 
 echo '<br/><br/>';
 
+// if, elseif, else
+
 function foo3(){
     $a = '5';
     $b = '4';
@@ -52,6 +58,8 @@ function foo3(){
 foo3();
 
 echo '<br/><br/>';
+
+// switch
 
 function foo4(){
     $i = 2;
@@ -72,6 +80,8 @@ foo4();
 
 echo '<br/><br/>';
 
+// while
+
 function foo5(){
     $i = 1;
     while ($i <= 10) 
@@ -85,6 +95,7 @@ foo5();
 
 echo '<br/><br/>';
 
+// for
 
 function foo6(){
     for ($i = 100; $i >= 10; $i-=10) 
@@ -95,23 +106,36 @@ function foo6(){
 
 foo6();
 
-echo '<br/><br/>';
-// echo "<br/>1. Metoda GET  do poprawnego dzialania w linku nalezy umiescic /?imieusera=TwojeImie<br/><br/>";
+// $_GET
 
-// echo 'Witaj ' . htmlspecialchars($_GET["imieusera"]) . '!';
+$_GET['imieusera'] = "Patryk";
 
-
-// session_start();
-// $_SESSION["newsession"]='123456789';
-// echo '</br>';
-// echo $_SESSION["newsession"];
-
-// echo "<br/>3. Metoda POST  do poprawnego dzialania w uzytkownik musi metoda post wyslać zmienną imieusera<br/><br/>";
-
-// echo 'Witaj ' . htmlspecialchars($_POST["imieusera"]) . '!';
+echo 'Witaj ' . htmlspecialchars($_GET["imieusera"]) . '!';
 
 echo '<br/><br/>';
+
+// $_POST
+
+$_POST['imieusera'] = "Patryk";
+
+echo 'Witaj ' . htmlspecialchars($_POST["imieusera"]) . '!';
+
 echo '<br/><br/>';
+
+// $_SESSION
+
+session_start();
+$_SESSION["newsession"]='123456789';
+
+echo '</br>';
+
+echo $_SESSION["newsession"];
+
 echo '<br/><br/>';
-echo '<br/><br/>';
+
+
+
+
+
+
 ?>
