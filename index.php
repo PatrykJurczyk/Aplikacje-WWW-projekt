@@ -181,10 +181,20 @@
 
     </section>
 
-
+    
     <script src="/aplikacje_www_projekt/js/main.js"></script>
     <script src="/aplikacje_www_projekt/js/main1.js" type="text/javascript"></script>
     <script src="/aplikacje_www_projekt/js/animacji.js" type="text/javascript"></script>
+    
+    <section class="identyfikator">
+        <?php
+
+            $nr_indeksu = '159154';
+            $nrGrupy = 'ISI4';
+            echo "Patryk Jurczyk $nr_indeksu grupa $nrGrupy"; 
+
+        ?>
+    </section>
     
 </body>
 </html>

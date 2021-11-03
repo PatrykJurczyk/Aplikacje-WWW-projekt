@@ -294,3 +294,11 @@ ul li a:hover {
 }
 
 /* Koniec animacji */
+
+.identyfikator{
+    padding: 0;
+    text-align: center;
+    margin: 30px 0;
+    font-size: 30px;
+    background-color: #000;
+}
