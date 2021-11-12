@@ -1,3 +1,8 @@
+<?php
+
+    include('./cfg.php');
+    
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
