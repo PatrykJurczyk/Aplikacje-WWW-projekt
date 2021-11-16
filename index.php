@@ -51,26 +51,23 @@
     </section>
 
     <?php
-        error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
+            error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
+            include 'cfg.php';
+            include 'showpage.php';
 
-        /* po tym komentarzu będzie kod do dynamicznego ładowania stron */
-        
-        if($_GET['idp'] == '') $strona = './html/glowna.html';
-        if($_GET['idp'] == 'pierwszy-lot') $strona = './html/pierwszy-lot.html';
-        if($_GET['idp'] == 'rekordy') $strona = './html/rekordy.html';
-        if($_GET['idp'] == 'uczestnicy') $strona = './html/uczestnicy.html';
-        if($_GET['idp'] == 'kontakt') $strona = './html/kontakt.html';
-        if($_GET['idp'] == 'filmy') $strona = './html/filmy.html';
-    ?>
+            if($_GET['page'] == '') $page = PokazPodstrone($link, 1);
+            if($_GET['page'] == 'about') $page = PokazPodstrone($link, 2);
+            if($_GET['page'] == 'action') $page = PokazPodstrone($link, 3);
+            if($_GET['page'] == 'kontakt') $page = PokazPodstrone($link, 4);
+            if($_GET['page'] == 'scifi') $page = PokazPodstrone($link, 5);
+            if($_GET['page'] == 'films') $page = PokazPodstrone($link, 6);
 
-    <?php 
+            if (file_exists($page)) {
+                include($page);
+            } else {
+                echo "$page";
+            }
 
-    if(file_exists($strona)){
-        include($strona);
-    } else{
-        echo "The file $filename does not exist";
-    }
-    
     ?>
 
     <script src="/aplikacje_www_projekt/js/main.js"></script>
