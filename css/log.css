@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url(/aplikacje_www_projekt/img/tlo.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top;
+  font-family: "Rubik", sans-serif !important;
+  color: rgb(255, 255, 255);
+}
+
+.pan-log {
+  width: 300px;
+  height: auto;
+  margin: 0 auto;
+  margin-top: 25vh;
+  padding: 30px;
+  border-radius: 10px;
+  border: 2px solid black;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+label {
+  display: block;
+  font-size: 16px;
+}
+
+#username,
+#password {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  padding: 5px;
+  border: 1px solid silver;
+  font-size: 14px;
+}
+#username:focus,
+#password:focus {
+  outline: 1px solid #15b600;
+}
+
+.buttons .btn {
+  width: 100%;
+  font-size: 16px;
+  background-color: black;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  margin-bottom: 20px;
+}
+
+.buttons .btn:hover {
+  color: #15b600;
+}
+
+.buttons a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.buttons #btn2 {
+  border: 3px solid black;
+  padding: 5px 30px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+}
+
+.buttons #btn2:hover {
+  color: #15b600;
+  background-color: black;
+}

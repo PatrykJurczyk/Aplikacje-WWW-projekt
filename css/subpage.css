@@ -1,0 +1,74 @@
+body {
+  background-color: grey;
+}
+.adminPanel {
+  margin-top: 30px;
+}
+.adminPanel input {
+  padding: 10px 30px;
+  background: linear-gradient(to right, #0037ff, #3c4977);
+  color: #fff;
+  font-size: 15px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.adminPanel .pos {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.adminPanel .pos:hover {
+  color: red;
+  border: 1px solid #222942;
+  padding: 9px 29px;
+  opacity: 0.95;
+}
+
+.adminPanel .bt:hover {
+  padding: 9px 29px;
+  color: #15b600;
+  border: 1px solid #222942;
+  opacity: 0.95;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 30px auto;
+}
+
+h2 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+tr > td {
+  text-align: center;
+}
+
+tr td form {
+  margin: 5px;
+}
+
+.btn-edit {
+  padding: 5px 15px;
+  background: linear-gradient(to right, #0037ff, #3c4977);
+  color: #fff;
+  font-size: 12px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-edit:hover {
+  padding: 4px 14px;
+  color: red;
+  border: 1px solid #222942;
+  opacity: 0.95;
+}

@@ -1,0 +1,76 @@
+body {
+  background-color: grey;
+}
+.adminPanel form {
+  position: absolute;
+  margin: 0;
+  right: 10;
+  top: 10px;
+}
+
+.btn > input {
+  width: 198px;
+}
+.adminPanel input,
+.btn > input {
+  padding: 10px 30px;
+  background: linear-gradient(to right, #0037ff, #3c4977);
+  color: #fff;
+  font-size: 15px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.adminPanel input:hover,
+.btn > input:hover {
+  color: red;
+  border: 1px solid #222942;
+  padding: 9px 29px;
+  opacity: 0.95;
+}
+
+.panel-manage {
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 60px;
+}
+
+.panel-manage h2 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.panel-manage label {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#idstrony,
+#title,
+#content,
+#status {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 5px;
+  border: 1px solid silver;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#idstrony:hover,
+#title:hover,
+#content:hover,
+#status:hover {
+  outline: 1px solid red;
+}
+
+#idstrony:focus,
+#title:focus,
+#content:focus,
+#status:focus {
+  outline: 1px solid #15b600;
+}

@@ -1,10 +1,22 @@
 <?php
-    $dbhost = "localhost";
-    $dbuser = "root";
-    $dbpass = "";
-    $baza = "moja_strona";
+class Config {
+    private $dbhost;
+    private $dbuser;
+    private $dbpass;
+    private $baza;
 
-    $link = new mysqli($dbhost, $dbuser, $dbpass, $baza);
-    if (!$link) echo '<b> Polaczenie nieudane </b>';
-    if (!mysqli_select_db($link, $baza)) echo '<b> Wybranie bazy nie udane </b>';
+    function __construct( $dbhost, $dbuser, $dbpass, $baza) {
+		$this->dbhost = $dbhost;
+		$this->dbuser = $dbuser;
+        $this->dbpass = $dbpass;
+        $this->baza = $baza;
+	}
+
+    public function connection() {
+        $dbase = new mysqli($this->dbhost, $this->dbuser, $this->dbpass, $this->baza);
+        if (!$dbase) echo '<b> Błąd połączenia </b>';
+        if (!mysqli_select_db($dbase, $this->baza)) echo '<b> Błąd połączenia z bazą </b>';
+        return $dbase;
+    }
+}
 ?>
