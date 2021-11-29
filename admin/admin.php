@@ -6,18 +6,15 @@ class Admin{
 		$this->db = $db;
 	}
 
+    // Funkcja odpowiedzialna za logowanie się do panelu admina
     function login() {
         session_start();
         if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
-
             $myusername = mysqli_real_escape_string($this->db,$_POST['username']);
             $mypassword = mysqli_real_escape_string($this->db,$_POST['password']); 
             $q = "SELECT * FROM users WHERE username = '$myusername' and password = '$mypassword'";
             $result = $this->db->query($q);
-            $row = mysqli_fetch_array($result);
-
             $count = mysqli_num_rows($result);
-
             if($count == 1) {
                 $_SESSION['login_user'] = $myusername;
                 header("location: listSubpage.php");
@@ -27,7 +24,7 @@ class Admin{
             }
         }
     }
-    
+    // Funkcja odpowiedzialna za wylogowywanie się z panelu admina
     function logout() {
         if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit2'])) {
             if(session_destroy()) {
@@ -35,25 +32,25 @@ class Admin{
             }
         }
     }
-    
+    // Funkcja odpowiedzialna za powrót do listy podsron
     function powrotDoListPods() {
         if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit8'])) {
             header("Location: listSubpage.php");
         }
     }
-
+    // Funkcja odpowiedzialna za wracanie do podstron z formularza logowania
     function powrotDoProjektu() {
         if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit9'])) {
             header("Location: index.php");
         }
     }
-
+    // Funkcja odpowiedzialna za dodawanie funkcjonalnosci przycicku odpoweidzialnego za dodawninie nowych podstron
     function dodajnowabutton() {
         if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit10'])) {
             header("Location: addPage.php");
         }
     }
-
+    // Funkcja odpowiedzialna za wyświetlanei podstron
     function ListaPodstron() {
         $query = "SELECT id, page_title, status FROM page_list ORDER BY id LIMIT 100";
         $result = $this->db->query($query);
@@ -70,13 +67,12 @@ class Admin{
             echo "<td>" . $row['id'] . "</td>";
             echo "<td>" . $row['page_title'] . "</td>";
             echo "<td>" . $row['status'] . "</td>";
-
             echo "<td><form action='' method='POST'><input type='hidden' name='tempId' value='".$row["id"]."'/><input type='submit' name='submit-btn' class='btn-edit' value='Edytuj' /></td>";
             echo "</form></tr>";
         }
         echo "</table>";
     }
-
+    // Funkcja odpowiedzialna za pobieranie danych zawartych na stronie jak i ważnych atrybnutów strony
     function PobierzDaneStrony($id) {
         $escapedid = mysqli_real_escape_string($this->db, $id);
         $query = "SELECT id, page_title, page_content, status FROM page_list WHERE id = $escapedid LIMIT 1";
@@ -110,14 +106,14 @@ class Admin{
         </div>
         ";
     }
-
+    // Funkcja odpowiedzialna za dodawanie funkcjonalnosci przycicku odpoweidzialnego za edytowanie wartości na stronie
     function WywolajEdit() {
         if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['tempId'])) {
             echo $_POST['tempId'];
             header("Location: adminPage.php?idstrony=".$_POST['tempId']);
         }
     }
-
+    // Funkcja odpowiedzialna za edytowanie wartości na stronie
     function EdytujPodstrone() {
         if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit3'])) {
             $escapedtitle = mysqli_real_escape_string($this->db,$_POST['title']);
@@ -126,10 +122,9 @@ class Admin{
             $escapedstatus = mysqli_real_escape_string($this->db,$_POST['status']); 
             $query = "UPDATE page_list SET page_title = '$escapedtitle', page_content = '$escapedcontent', status = '$escapedstatus' WHERE id = $escapedid LIMIT 1";
             $result = $this->db->query($query);
-            // echo $result;
         }
     }
-
+    // Funkcja odpowiedzialna  za dodawninie nowych podstron
     function DodajPodstrone() {
         if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit4'])) {
             $escapedtitle = mysqli_real_escape_string($this->db,$_POST['title']);
@@ -137,15 +132,14 @@ class Admin{
             $escapedstatus = mysqli_real_escape_string($this->db,$_POST['status']); 
             $query = "INSERT INTO page_list VALUES(default, '$escapedtitle', '$escapedcontent', '$escapedstatus')";
             $result = $this->db->query($query);
-            // echo $result;
         }
     }
+    // Funkcja odpowiedzialna  za usuwanie podstron
     function UsunPodstrone() {
         if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete1'])) {
             $escapedid = mysqli_real_escape_string($this->db,$_POST['idstrony']); 
             $query = "DELETE FROM page_list WHERE id = $escapedid LIMIT 1";
             $result = $this->db->query($query);
-            // echo $result;
         }
     }
 }

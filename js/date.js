@@ -18,7 +18,6 @@ function startclock() {
     showtime();
 }
 
-
 function showtime() {
     var now = new Date();
     var hours = now.getHours();

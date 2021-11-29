@@ -9,6 +9,7 @@
       <div class="box">
          <h2>Lista Podstron</h2>
          <?php
+            // Importowanie plików zawierających metody potrzebne do poprawnego działania dodawania nowych stron. 
             error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
             include './session.php';
             include './admin/admin.php';

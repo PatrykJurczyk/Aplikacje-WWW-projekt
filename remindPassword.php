@@ -9,53 +9,48 @@
 </head>
 <body>
     <?php
-        class PrzypomnijHaslo{
-            
-            private $db;
+    // Klasa posiadająca metody odpowiedzialne za przypomnienie hasła.
+    class PrzypomnijHaslo{ 
+        private $db;
 
-            function __construct($db) {
-                $this->db = $db;
+        function __construct($db) {
+            $this->db = $db;
+        }
+        // Funkjcja odpowiedzialna za wysłanie email z hasłem.
+        function PrzypomnijHaslo() {
+            $errorMessage = null;
+            $successMessage = null;
+
+            $name = ($_POST['name']);
+            $email = ($_POST['email']);
+
+            if(empty($name) || empty($email)) {
+                $errorMessage = '<div class="mess">Wypełnij wszystkie pola!</div>';
+                echo $errorMessage;
             }
-
-            function PrzypomnijHaslo() {
-                $errorMessage = null;
-                $successMessage = null;
-
-
-                $name = ($_POST['name']);
-                $email = ($_POST['email']);
-
-                if(empty($name) || empty($email)) {
-                    $errorMessage = '<div class="mess">Wypełnij wszystkie pola!</div>';
-                    echo $errorMessage;
-                }
-
-                if (is_null($errorMessage)) {
-                    $q = "SELECT * FROM `users` WHERE `username`='".$name."' LIMIT 1";
-                    $result = $this->db->query($q);
-                    while($obj = $result->fetch_object()){
-                        if($obj->username == $name){
-                            mail(
-                                'twoj-adres@email.pl',
-                                'Przypomnienie hasła: ',
-                                "Hasło: $obj->password",
-                                "From: $obj->username <$email>"
-                            );
-                            $successMessage = '<div class="mess">Wiadomość została wysłana</div>'; 
-                        }
+            if (is_null($errorMessage)) {
+                $q = "SELECT * FROM `users` WHERE `username`='".$name."' LIMIT 1";
+                $result = $this->db->query($q);
+                while($obj = $result->fetch_object()){
+                    if($obj->username == $name){
+                        mail('twoj-adres@email.pl', 'Przypomnienie hasła: ', "Hasło: $obj->password", "From: $obj->username <$email>");
+                        $successMessage = '<div class="mess">Wiadomość została wysłana</div>'; 
                     }
                 }
             }
         }
-            error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
-            include './cfg.php';
-            include './admin/admin.php';
-            $con = new Config("localhost", "root", "", "moja_strona");
-            $db = $con->connection();
-            $pass = new PrzypomnijHaslo($db);
-            $pass->PrzypomnijHaslo();
-    ?>
+    }
 
+    // Do poprawnego wykorzystania meody potrzebne było połączenie się z bazą danych za pomocą metod napisanych w pliku cfg.php
+    error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
+    include './cfg.php';
+    include './admin/admin.php';
+    $con = new Config("localhost", "root", "", "moja_strona");
+    $db = $con->connection();
+    $pass = new PrzypomnijHaslo($db);
+    $pass->PrzypomnijHaslo();
+    ?>
+    <!-- Formularz zgłoszeniowy -->
     <section class='main-sec' style='padding-top: 120px;'>
         <div class='pan-log'>
             <h2 class='h2'>
@@ -72,10 +67,7 @@
                     <input class='btn' id='submited' name='submited' type='submit' value='Wyślij przypomnienie'/>
                 </div>
             </form> 
-            <?php
-                echo $successMessage;
-                echo $errorMessage;
-            ?>
+            <?php echo $successMessage; echo $errorMessage; ?>
         </div>
     </section>
 </body>

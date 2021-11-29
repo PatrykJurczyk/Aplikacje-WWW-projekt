@@ -1,3 +1,5 @@
+// Animacja po kliknięciu w elemnet zwiększa szerokość i modyfikuje inne własności
+
 $("#animacjaTestowa1").on("click", function () {
     $(this).animate({
         width: "500px",
@@ -6,6 +8,8 @@ $("#animacjaTestowa1").on("click", function () {
         borderWidth: "10px"
     }, 1500);
 });
+
+// Animacja po najechaniu myszką w elemnet zwiększa szerokość i modyfikuje inne własności
 
 $("#animacjaTestowa2").on({
     "mouseover": function () {
@@ -19,6 +23,8 @@ $("#animacjaTestowa2").on({
         }, 800);
     }
 });
+
+// Animacja po kliknięciu w elemnet zwiększa szerokość i modyfikuje inne własności
 
 $("#animacjaTestowa3").on("click", function () {
     if (!$(this).is(":animated")) {

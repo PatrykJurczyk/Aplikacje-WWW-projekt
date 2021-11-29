@@ -1,3 +1,1 @@
-<?php
-    $foo1 = 'bar';
-?>
+<?php $foo1 = 'bar'; ?>

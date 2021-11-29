@@ -17,7 +17,9 @@
   </head>
   <body>
     <?php
+        // Clasa zawierająca metody odpowiedzialne za wysyłanie zgłoszeń na email
         class Contact{
+            // Funkcja wyświetlająca szkielet formularza zgłoszeniowego
             function PokazKontakt($m){
                 echo "
                     <section class='main-sec' style='padding-top: 120px;'>
@@ -45,6 +47,7 @@
                 ";
             }
 
+            // Metoda odpowiedziana za mechanike i poprawność wysłania email 
             function WyslijMailKontakt($odbiorca){
                 if(empty($_POST['temat']) || empty($_POST['tresc']) || empty($_POST['email'])) {
                     $message1 = '<div class="err">Wypełnij wszystkie pola!</div>';

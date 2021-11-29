@@ -1,4 +1,5 @@
 <?php
+// Klasa zawierająca metode odpowiedzialną za poprawne połączenie się z bazą
 class Config {
     private $dbhost;
     private $dbuser;

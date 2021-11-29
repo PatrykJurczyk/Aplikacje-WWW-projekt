@@ -3,17 +3,14 @@
 $nr_indeksu = '159154';
 $nrGrupy = 'ISI4';
 
-
 echo "Patryk Jurczyk $nr_indeksu grupa $nrGrupy <br/><br/>"; 
 echo "Zastosowanie metody include() <br/><br/>";
-
 echo 'Patryk Jurczyk' .$nr_indeksu. 'grupa' .$nrGrupy. '<br/><br/>'; 
 echo 'Zastosowanie metody include() <br/><br/>';
 
 // Include
 
-function foo()
-{
+function foo(){
     include 'vars.php';
     echo "A $color $fruit";
 }
@@ -52,7 +49,6 @@ function foo3(){
      echo "b jest wieksze od a";
     else
         echo "a jest równe b";
-
 }
 
 foo3();
@@ -84,8 +80,7 @@ echo '<br/><br/>';
 
 function foo5(){
     $i = 1;
-    while ($i <= 10) 
-    {
+    while ($i <= 10) {
        echo "$i <br/>";  
        $i++;
     }
@@ -98,8 +93,7 @@ echo '<br/><br/>';
 // for
 
 function foo6(){
-    for ($i = 100; $i >= 10; $i-=10) 
-    {
+    for ($i = 100; $i >= 10; $i-=10) {
        echo "$i <br/>";  
     }
 }
@@ -109,7 +103,6 @@ foo6();
 // $_GET
 
 $_GET['imieusera'] = "Patryk";
-
 echo 'Witaj ' . htmlspecialchars($_GET["imieusera"]) . '!';
 
 echo '<br/><br/>';
@@ -117,7 +110,6 @@ echo '<br/><br/>';
 // $_POST
 
 $_POST['imieusera'] = "Patryk";
-
 echo 'Witaj ' . htmlspecialchars($_POST["imieusera"]) . '!';
 
 echo '<br/><br/>';
@@ -132,10 +124,4 @@ echo '</br>';
 echo $_SESSION["newsession"];
 
 echo '<br/><br/>';
-
-
-
-
-
-
 ?>
