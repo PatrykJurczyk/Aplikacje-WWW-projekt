@@ -22,4 +22,6 @@ class PokazStrone{
         return $web;
     }
 }
+
+ test
 ?>

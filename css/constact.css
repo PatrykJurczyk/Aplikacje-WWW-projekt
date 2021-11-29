@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url(/aplikacje_www_projekt/img/tlo.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top;
+  font-family: "Rubik", sans-serif !important;
+  color: rgb(255, 255, 255);
+}
+
+.form {
+  width: 500px !important;
+  margin: 0 auto;
+}
+
+.item input,
+.item textarea {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 auto;
+  height: 40px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  border: none;
+  font-weight: 600;
+  padding-left: 15px;
+  color: #536dd3;
+  font-size: 16px;
+}
+
+.item textarea {
+  font-family: "Rubik", sans-serif;
+  height: unset;
+  padding-top: 10px;
+  margin-bottom: 0;
+}
+
+::-webkit-input-placeholder {
+  color: #000;
+  font-size: 16px;
+  padding-left: 10px;
+  font-weight: 600;
+  padding: 0;
+}
+
+:-moz-placeholder {
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+::-moz-placeholder {
+  color: #000;
+  font-size: 16px;
+  padding-left: 10px;
+  font-weight: 600;
+}
+
+:-ms-input-placeholder {
+  color: #000;
+  font-size: 16px;
+  padding-left: 10px;
+  font-weight: 600;
+}
+
+.item input:focus,
+.item textarea:focus {
+  outline: none;
+}
+
+.btn {
+  width: 100%;
+  cursor: pointer;
+  border-radius: 50px;
+  background-color: #536dd3;
+  color: #000;
+  border: none;
+  font-weight: 600;
+  padding: 15px;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.btn:hover {
+  color: #fff;
+}
+
+div.err {
+  text-align: center !important;
+  color: red;
+  font-weight: bold;
+  font-size: 26px;
+}

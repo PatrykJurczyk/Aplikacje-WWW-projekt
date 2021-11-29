@@ -28,7 +28,7 @@
         <li><a href="index.php?idp=pierwszy-lot">Pierwszy lot</a></li>
         <li><a href="index.php?idp=rekordy">Rekordy</a></li>
         <li><a href="index.php?idp=uczestnicy">Uczestnicy</a></li>
-        <li><a href="index.php?idp=kontakt">Kontakt</a></li>
+        <li><a href="contact.php">Kontakt</a></li>
       </ul>
       <form name="form1" method="post">
         <a href="listSubpage.php" class="admin">Admin</a>

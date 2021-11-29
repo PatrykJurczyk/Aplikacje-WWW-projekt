@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(/aplikacje_www_projekt/img/tlo.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
+    font-family: "Rubik", sans-serif !important;
+    color: rgb(255, 255, 255);
+    position: relative;
+  }
+  
+  .pan-log {
+    width: 311px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 20vh;
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid black;
+    background-color: rgba(0, 0, 0, 0.6);
+
+  }
+  
+  label {
+    display: block;
+    font-size: 16px;
+  }
+  
+  #username,
+  #email {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    padding: 5px;
+    border: 1px solid silver;
+    font-size: 14px;
+  }
+  #username:focus,
+  #email:focus {
+    outline: 1px solid #15b600;
+  }
+  
+  .buttons .btn {
+    width: 100%;
+    font-size: 16px;
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    margin-bottom: 20px;
+  }
+  
+  .buttons .btn:hover {
+    color: #15b600;
+  }
+  
+div.mess{
+    position: absolute;
+    font-weight: bold;
+    color: red;
+    font-size: 20px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
