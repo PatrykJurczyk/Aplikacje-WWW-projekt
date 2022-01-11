@@ -21,8 +21,8 @@
             $errorMessage = null;
             $successMessage = null;
 
-            $name = ($_POST['name']);
-            $email = ($_POST['email']);
+            $name = mysqli_real_escape_string($this->db,$_POST['name']);
+            $email = mysqli_real_escape_string($this->db,$_POST['email']);
 
             if(empty($name) || empty($email)) {
                 $errorMessage = '<div class="mess">Wypełnij wszystkie pola!</div>';
@@ -34,7 +34,11 @@
                 while($obj = $result->fetch_object()){
                     if($obj->username == $name){
                         mail('twoj-adres@email.pl', 'Przypomnienie hasła: ', "Hasło: $obj->password", "From: $obj->username <$email>");
-                        $successMessage = '<div class="mess">Wiadomość została wysłana</div>'; 
+                        $successMessage = '<div class="mess">Wiadomość została wysłana</div>';
+                        echo $successMessage;
+                    } else{
+                        $successMessage1 = '<div class="mess">Nie ma takiego użytkownika!!</div>';
+                        echo $successMessage1;
                     }
                 }
             }

@@ -80,7 +80,7 @@
         <input
           type="button"
           value="default"
-          ONCLICK="changeBackground('url(/aplikacje_www_projekt/img/tlo.jpg)')"
+          ONCLICK="changeBackground('url(./aplikacje_www_projekt/img/tlo.jpg)')"
         />
       </form>
     </section>
@@ -114,7 +114,7 @@
 
     <script src="/aplikacje_www_projekt/js/main.js"></script>
     <script
-      src="/aplikacje_www_projekt/js/main1.js"
+      src="/aplikacje_www_projekt/js/date.js"
       type="text/javascript"
     ></script>
     <script
