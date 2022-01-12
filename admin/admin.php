@@ -205,80 +205,83 @@
 
 
 
+
+
+
+
         function edytujKategorie(){
             $query = "SELECT * FROM shop_category";
             $result = $this->db->query($query);
-
-            echo '<h1>Lista kategorii</h1>';
-
-            echo '<div><span>ID</span><span>Matka</span><span>Nazwa</span><span>Edycja</span></div>';
-
-
+            echo '<h1>Edytuj kategorie</h1>';
+            echo "<table class='tableCat'>
+                    <tr>
+                    <th>ID</th>
+                    <th>Matka</th>
+                    <th>Nazwa</th>
+                    <th>Edytuj</th>
+                    </tr>";
             while($row = mysqli_fetch_array($result)){
-
-                echo '
-
-                <div class="id">'.$row['id'].'</div>
-                <span style="margin-left:30px;">'.$row['matka'].'</span>
-                <div class="title" style="margin-left: 40px;">'.$row['nazwa'].'</div>'.'
-                <a href="edytujKategorie.php?id='.$row['id'].'">
-                <button>Edytuj</button>
-                </a>'
-                
-                ;
+                echo "
+                <tr>
+                    <td>".$row['id']."</td>
+                    <td>".$row['matka']."</td>
+                    <td>".$row['nazwa']."</td>
+                    <td>
+                        <form action='' method='POST'><input type='hidden' name='tempId' value='".$row["id"]."'/><input type='submit' name='submit-btn' class='btn-edit' value='Edytuj' /></form>
+                    </td>
+                </tr>";
 
             }
+            echo "</table>";
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
         function usunKategorie(){
             $query = "SELECT * FROM shop_category";
             $result = $this->db->query($query);
-
-            echo '<h1>Lista kategorii</h1>';
-
-            echo '<div><span>ID</span><span>Matka</span><span>Nazwa</span><span>Edycja</span></div>';
-
-
+            echo '<h1>Usuń kategorie</h1>';
+            echo "<table class='tableCat'>
+                    <tr>
+                    <th>ID</th>
+                    <th>Matka</th>
+                    <th>Nazwa</th>
+                    <th>Usuń</th>
+                    </tr>";
             while($row = mysqli_fetch_array($result)){
-                echo '<div class="id">'.$row['id'].'</div><span style="margin-left:30px;">'.$row['matka'].'</span><div class="title" style="margin-left: 40px;">'.$row['nazwa'].'</div>'.'<a href="usunKategorie.php?id='.$row['id'].'"><button>Usuń</button></a><br>';
+                echo "
+                <tr>
+                    <td>".$row['id']."</td>
+                    <td>".$row['matka']."</td>
+                    <td>".$row['nazwa']."</td>
+                    <td>
+                        <form action='' method='POST'><input type='hidden' name='tempId' value='".$row["id"]."'/><input type='submit' name='submit-btn' class='btn-edit' value='Usuń' /></form>
+                    </td>
+                </tr>";
             }
+            echo "</table>";
         }
 
         function dodajKategorie(){
             $query = "SELECT * FROM shop_category";
             $result = $this->db->query($query);
-
-            echo '<h1>Lista kategorii</h1>';
-
-            echo '<div><span>ID</span><span>Matka</span><span>Nazwa</span><span>Edycja</span></div>';
-
-
+            echo '<h1>Dodaj kategorie</h1>';
+            echo "<table class='tableCat'>
+                    <tr>
+                    <th>ID</th>
+                    <th>Matka</th>
+                    <th>Nazwa</th>
+                    <th>Dodaj</th>
+                    </tr>";
             while($row = mysqli_fetch_array($result)){
-                echo '<div class="id">'.$row['id'].'</div><span style="margin-left:30px;">'.$row['matka'].'</span><div class="title" style="margin-left: 40px;">'.$row['nazwa'].'</div>'.'<a href="dodajKategorie.php?id='.$row['id'].'"><button>Dodaj</button></a><br>';
+                echo "
+                <tr>
+                    <td>".$row['id']."</td>
+                    <td>".$row['matka']."</td>
+                    <td>".$row['nazwa']."</td>
+                    <td>
+                        <form action='' method='POST'><input type='hidden' name='tempId' value='".$row["id"]."'/><input type='submit' name='submit-btn' class='btn-edit' value='Dodaj' /></form>
+                    </td>
+                </tr>";
             }
+            echo "</table>";
         }
 
 

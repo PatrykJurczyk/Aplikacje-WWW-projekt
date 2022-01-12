@@ -22,7 +22,9 @@
              </div>
          </form>
       </div>
-      <div class="elemet-rendered"></div>
+      <div class="elemet-rendered">
+          <img src="./img/smiley.png" alt="smile" style="width: 600px; display:block; margin: auto;">
+      </div>
       <?php
          // Importowanie plików zawierających metody potrzebne do poprawnego działania dodawania nowych stron. 
          error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);

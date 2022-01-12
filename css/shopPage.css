@@ -56,3 +56,13 @@ body {
 h1{
     text-align: center;
 }
+
+.tableCat th{
+    padding: 0 20px;
+}
+
+.tableCat{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
