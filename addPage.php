@@ -22,9 +22,7 @@
          $con = new Config("localhost", "root", "", "moja_strona");
          $db = $con->connection();
          $user = new Admin($db);
-         $user->EdytujPodstrone();
          $user->DodajPodstrone();
-         $user->UsunPodstrone();
          $user->logout();
          $user->powrotDoListPods();
       ?>

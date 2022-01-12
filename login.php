@@ -23,7 +23,7 @@
         <input id="password" type="password" name="password" class="" />
         <div class="buttons">
           <input class="btn" id="submit" name="submit" type="submit" value="Zaloguj"/>
-          <a href="index.php"><span id="btn2">Powrót</span></a>
+          <a href="index.php?idp=/"><span id="btn2">Powrót</span></a>
           <a href="remindPassword.php"><span id="btn2">Przypomnij Hasło</span></a>
         </div>
        </form>

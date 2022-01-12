@@ -14,13 +14,26 @@ body {
   cursor: pointer;
   font-weight: bold;
 }
-.adminPanel .pos {
+.adminPanel .pos1 {
   position: absolute;
   top: 10px;
   right: 10px;
 }
 
-.adminPanel .pos:hover {
+.adminPanel .pos1:hover {
+  color: red;
+  border: 1px solid #222942;
+  padding: 9px 29px;
+  opacity: 0.95;
+}
+
+.adminPanel .pos2 {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.adminPanel .pos2:hover {
   color: red;
   border: 1px solid #222942;
   padding: 9px 29px;
