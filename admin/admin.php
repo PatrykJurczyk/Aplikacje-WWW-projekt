@@ -198,6 +198,72 @@
 
 
 
+        function UsunKategorie() {
+            if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['deleteCat'])) {
+                $del = mysqli_real_escape_string($this->db,$_POST['idcategory']);
+                $query = "DELETE FROM shop_category WHERE id = $del LIMIT 1";
+                $result = $this->db->query($query);
+            }
+        }
+
+
+        function wyswietlUsunKategorie(){
+            $query = "SELECT * FROM shop_category";
+            $result = $this->db->query($query);
+            echo '<h1>Usuń kategorie</h1>';
+            echo "<table class='tableCat'>
+                    <tr>
+                    <th>ID</th>
+                    <th>Matka</th>
+                    <th>Nazwa</th>
+                    <th>Usuń</th>
+                    </tr>";
+            while($row = mysqli_fetch_array($result)){
+                echo "
+                <tr>
+                    <td>".$row['id']."</td>
+                    <td>".$row['matka']."</td>
+                    <td>".$row['nazwa']."</td>
+                    <td><input id='deleteCat' name='deleteCat' type='submit' class='' value='Usuń'/></td>
+                </tr>";
+            }
+            echo "</table>";
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -234,30 +300,23 @@
             }
             echo "</table>";
         }
-        function usunKategorie(){
-            $query = "SELECT * FROM shop_category";
-            $result = $this->db->query($query);
-            echo '<h1>Usuń kategorie</h1>';
-            echo "<table class='tableCat'>
-                    <tr>
-                    <th>ID</th>
-                    <th>Matka</th>
-                    <th>Nazwa</th>
-                    <th>Usuń</th>
-                    </tr>";
-            while($row = mysqli_fetch_array($result)){
-                echo "
-                <tr>
-                    <td>".$row['id']."</td>
-                    <td>".$row['matka']."</td>
-                    <td>".$row['nazwa']."</td>
-                    <td>
-                        <form action='' method='POST'><input type='hidden' name='tempId' value='".$row["id"]."'/><input type='submit' name='submit-btn' class='btn-edit' value='Usuń' /></form>
-                    </td>
-                </tr>";
-            }
-            echo "</table>";
-        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         function dodajKategorie(){
             $query = "SELECT * FROM shop_category";

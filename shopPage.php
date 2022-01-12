@@ -36,6 +36,7 @@
          $user = new Admin($db);
          $user->logout();
          $user->powrotDoPanelAdmin();
+         $user->UsunKategorie();
       ?>
 
       <script type="text/JavaScript">
@@ -54,7 +55,7 @@
           }
           btn11.onclick = function() { // Usuń Kategorie
             elRendered.innerHTML = ""
-            elRendered.innerHTML =  `<?php $user->usunKategorie(); ?>`
+            elRendered.innerHTML =  `<?php $user->wyswietlUsunKategorie(); ?>`
           }
           btn7.onclick = function() { // Dodaj Kategorie
             elRendered.innerHTML = ""
