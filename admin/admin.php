@@ -204,29 +204,78 @@
 
 
 
+
         function edytujKategorie(){
             $query = "SELECT * FROM shop_category";
             $result = $this->db->query($query);
-            echo '<b>Lista kategorii</b><br><br>';
-            echo '<b># ID # Matka ######## Nazwa ######## Edycja</b><br>';
+
+            echo '<h1>Lista kategorii</h1>';
+
+            echo '<div><span>ID</span><span>Matka</span><span>Nazwa</span><span>Edycja</span></div>';
+
+
             while($row = mysqli_fetch_array($result)){
-                echo '<div class="id">'.$row['id'].'</div><span style="margin-left:30px;">'.$row['matka'].'</span><div class="title" style="margin-left: 40px;">'.$row['nazwa'].'</div>'.'<a href="edytujKategorie.php?id='.$row['id'].'"><button>Edytuj</button></a>';
+
+                echo '
+
+                <div class="id">'.$row['id'].'</div>
+                <span style="margin-left:30px;">'.$row['matka'].'</span>
+                <div class="title" style="margin-left: 40px;">'.$row['nazwa'].'</div>'.'
+                <a href="edytujKategorie.php?id='.$row['id'].'">
+                <button>Edytuj</button>
+                </a>'
+                
+                ;
+
             }
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
         function usunKategorie(){
             $query = "SELECT * FROM shop_category";
             $result = $this->db->query($query);
-            echo '<b>Lista kategorii</b><br><br>';
-            echo '<b># ID # Matka ######## Nazwa ######## Edycja</b><br>';
+
+            echo '<h1>Lista kategorii</h1>';
+
+            echo '<div><span>ID</span><span>Matka</span><span>Nazwa</span><span>Edycja</span></div>';
+
+
             while($row = mysqli_fetch_array($result)){
                 echo '<div class="id">'.$row['id'].'</div><span style="margin-left:30px;">'.$row['matka'].'</span><div class="title" style="margin-left: 40px;">'.$row['nazwa'].'</div>'.'<a href="usunKategorie.php?id='.$row['id'].'"><button>Usuń</button></a><br>';
             }
         }
+
         function dodajKategorie(){
             $query = "SELECT * FROM shop_category";
             $result = $this->db->query($query);
-            echo '<b>Lista kategorii</b><br><br>';
-            echo '<b># ID # Matka ######## Nazwa ######## Edycja</b><br>';
+
+            echo '<h1>Lista kategorii</h1>';
+
+            echo '<div><span>ID</span><span>Matka</span><span>Nazwa</span><span>Edycja</span></div>';
+
+
             while($row = mysqli_fetch_array($result)){
                 echo '<div class="id">'.$row['id'].'</div><span style="margin-left:30px;">'.$row['matka'].'</span><div class="title" style="margin-left: 40px;">'.$row['nazwa'].'</div>'.'<a href="dodajKategorie.php?id='.$row['id'].'"><button>Dodaj</button></a><br>';
             }
