@@ -67,8 +67,8 @@
                 echo "<td>" . $row['id'] . "</td>";
                 echo "<td>" . $row['page_title'] . "</td>";
                 echo "<td>" . $row['status'] . "</td>";
-                echo "<td><form action='' method='POST'><input type='hidden' name='tempId' value='".$row["id"]."'/><input type='submit' name='submit-btn' class='btn-edit' value='Edytuj' /></td>";
-                echo "</form></tr>";
+                echo "<td><form action='' method='POST'><input type='hidden' name='tempId' value='".$row["id"]."'/><input type='submit' name='submit-btn' class='btn-edit' value='Edytuj' /></form></td>";
+                echo "</tr>";
             }
             echo "</table>";
         }
@@ -189,23 +189,13 @@
             echo '</ul>';
         }
 
-
-
-
-        
-
-
-
-
-
         function UsunKategorie() {
-            if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['deleteCat'])) {
-                $del = mysqli_real_escape_string($this->db,$_POST['idcategory']);
+            if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['usunID'])) {
+                $del = mysqli_real_escape_string($this->db,$_POST['usunID']);
                 $query = "DELETE FROM shop_category WHERE id = $del LIMIT 1";
                 $result = $this->db->query($query);
             }
         }
-
 
         function wyswietlUsunKategorie(){
             $query = "SELECT * FROM shop_category";
@@ -224,7 +214,12 @@
                     <td>".$row['id']."</td>
                     <td>".$row['matka']."</td>
                     <td>".$row['nazwa']."</td>
-                    <td><input id='deleteCat' name='deleteCat' type='submit' class='' value='Usuń'/></td>
+                    <td>
+                        <form action='' method='POST' style='margin: 8px 0;'>
+                            <input type='hidden' name='usunID' value='".$row["id"]."'/>
+                            <input type='submit' name='submit-btn' class='' value='Usuń'/>
+                        </form>
+                    </td>
                 </tr>";
             }
             echo "</table>";
@@ -271,9 +266,23 @@
 
 
 
-
-
-
+        // Funkcja odpowiedzialna za dodawanie funkcjonalnosci przycicku odpoweidzialnego za edytowanie wartości na stronie
+        function WywolajEdit() {
+            if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['editID'])) {
+                header("Location: adminPage.php?idstrony=".$_POST['editID']);
+            }
+        }
+        // Funkcja odpowiedzialna za edytowanie wartości na stronie
+        function EdytujPodstrone() {
+            if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit3'])) {
+                $escapedtitle = mysqli_real_escape_string($this->db,$_POST['title']);
+                $escapedcontent = mysqli_real_escape_string($this->db,$_POST['content']); 
+                $escapedid = mysqli_real_escape_string($this->db,$_POST['idstrony']); 
+                $escapedstatus = mysqli_real_escape_string($this->db,$_POST['status']); 
+                $query = "UPDATE page_list SET page_title = '$escapedtitle', page_content = '$escapedcontent', status = '$escapedstatus' WHERE id = $escapedid LIMIT 1";
+                $result = $this->db->query($query);
+            }
+        }
 
         function edytujKategorie(){
             $query = "SELECT * FROM shop_category";
@@ -293,13 +302,26 @@
                     <td>".$row['matka']."</td>
                     <td>".$row['nazwa']."</td>
                     <td>
-                        <form action='' method='POST'><input type='hidden' name='tempId' value='".$row["id"]."'/><input type='submit' name='submit-btn' class='btn-edit' value='Edytuj' /></form>
+                        <form action='' method='POST'>
+                            <input type='hidden' name='editID' value='".$row["id"]."'/>
+                            <input type='submit' name='submit-btn' class='btn-edit' value='Edytuj'/>
+                        </form>
                     </td>
                 </tr>";
 
             }
             echo "</table>";
         }
+
+
+
+
+
+
+
+
+
+
 
 
 
