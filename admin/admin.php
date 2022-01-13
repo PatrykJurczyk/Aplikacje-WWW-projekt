@@ -190,10 +190,11 @@
         }
 
         function UsunKategorie() {
-            if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['usunID'])) {
+            if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['usun-btn'])) {
                 $del = mysqli_real_escape_string($this->db,$_POST['usunID']);
                 $query = "DELETE FROM shop_category WHERE id = $del LIMIT 1";
                 $result = $this->db->query($query);
+                header('location: ./shopPage.php');
             }
         }
 
@@ -215,9 +216,9 @@
                     <td>".$row['matka']."</td>
                     <td>".$row['nazwa']."</td>
                     <td>
-                        <form action='' method='POST' style='margin: 8px 0;'>
-                            <input type='hidden' name='usunID' value='".$row["id"]."'/>
-                            <input type='submit' name='submit-btn' class='' value='Usuń'/>
+                        <form action='./shopPage.php' method='POST' style='margin: 8px 0;'>
+                            <input type='hidden' name='usunID' value='".$row['id']."'/>
+                            <input type='submit' name='usun-btn' id='delete' value='Usuń'/>
                         </form>
                     </td>
                 </tr>";
@@ -225,66 +226,17 @@
             echo "</table>";
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // Funkcja odpowiedzialna za dodawanie funkcjonalnosci przycicku odpoweidzialnego za edytowanie wartości na stronie
-        function WywolajEdit() {
+        function EdytujKategorie() {
             if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['editID'])) {
-                header("Location: adminPage.php?idstrony=".$_POST['editID']);
-            }
-        }
-        // Funkcja odpowiedzialna za edytowanie wartości na stronie
-        function EdytujPodstrone() {
-            if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit3'])) {
-                $escapedtitle = mysqli_real_escape_string($this->db,$_POST['title']);
-                $escapedcontent = mysqli_real_escape_string($this->db,$_POST['content']); 
-                $escapedid = mysqli_real_escape_string($this->db,$_POST['idstrony']); 
-                $escapedstatus = mysqli_real_escape_string($this->db,$_POST['status']); 
-                $query = "UPDATE page_list SET page_title = '$escapedtitle', page_content = '$escapedcontent', status = '$escapedstatus' WHERE id = $escapedid LIMIT 1";
+                $editId = mysqli_real_escape_string($this->db,$_POST['editID']);
+                $editMatka = mysqli_real_escape_string($this->db,$_POST['matka']); 
+                $editNazwa = mysqli_real_escape_string($this->db,$_POST['nazwa']);
+                $query = "UPDATE shop_category SET nazwa = '$editNazwa', matka = '$editMatka' WHERE id = $editId LIMIT 1";
                 $result = $this->db->query($query);
             }
         }
 
-        function edytujKategorie(){
+        function wyswietlEdytujKategorie(){
             $query = "SELECT * FROM shop_category";
             $result = $this->db->query($query);
             echo '<h1>Edytuj kategorie</h1>';
@@ -294,53 +246,38 @@
                     <th>Matka</th>
                     <th>Nazwa</th>
                     <th>Edytuj</th>
-                    </tr>";
+                    </tr>
+                 </table>";
             while($row = mysqli_fetch_array($result)){
                 echo "
-                <tr>
-                    <td>".$row['id']."</td>
-                    <td>".$row['matka']."</td>
-                    <td>".$row['nazwa']."</td>
-                    <td>
-                        <form action='' method='POST'>
-                            <input type='hidden' name='editID' value='".$row["id"]."'/>
-                            <input type='submit' name='submit-btn' class='btn-edit' value='Edytuj'/>
-                        </form>
-                    </td>
-                </tr>";
-
+                <form class='editCategory' action='' method = 'post'>
+                    <div>
+                        <input value='".$row['id']."' id='idCat' type='number' name='idCat'/>
+                    </div>
+                    <div>
+                        <input value='".$row['matka']."' id='matka' type='number' name='matka'/>
+                    </div>
+                    <div>
+                        <input value='".$row['nazwa']."' id='nazwa' type='text' name='nazwa'/>
+                    </div>
+                    <div class='btn'> 
+                        <input type='hidden' name='editID' value='".$row["id"]."'/>
+                        <input id='edit' type='submit' value='Edytuj'/>
+                    </div>
+                </form>";
             }
-            echo "</table>";
         }
 
+        function DodajKategorie() {
+            if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['addCategory'])) {
+                $addNazwa = mysqli_real_escape_string($this->db,$_POST['nazwa']);
+                $addMatka = mysqli_real_escape_string($this->db,$_POST['matka']); 
+                $query = "INSERT INTO shop_category VALUES(default, '$addMatka', '$addNazwa')";
+                $result = $this->db->query($query);
+            }
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        function dodajKategorie(){
+        function wyswietlDodajKategorie(){
             $query = "SELECT * FROM shop_category";
             $result = $this->db->query($query);
             echo '<h1>Dodaj kategorie</h1>';
@@ -357,36 +294,24 @@
                     <td>".$row['id']."</td>
                     <td>".$row['matka']."</td>
                     <td>".$row['nazwa']."</td>
-                    <td>
-                        <form action='' method='POST'><input type='hidden' name='tempId' value='".$row["id"]."'/><input type='submit' name='submit-btn' class='btn-edit' value='Dodaj' /></form>
-                    </td>
                 </tr>";
             }
             echo "</table>";
+            echo "
+            <form class='editCategory' action='' method='post'>
+                <div>
+                    <span>AutoIncrement</span>
+                </div>
+                <div>
+                    <input value='' id='matka' type='number' name='matka' min='0'/>
+                </div>
+                <div>
+                    <input value='' id='nazwa' type='text' name='nazwa'/>
+                </div>
+                <div class='btn'> 
+                    <input id='addCategory' name='addCategory' type='submit' value='Dodaj Kategorie'/>
+                </div>
+            </form>";
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 ?>
