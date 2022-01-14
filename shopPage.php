@@ -55,24 +55,21 @@
             elRendered.innerHTML =  `
             <?php 
                 $user->wyswietlUsunProdukt();
-            ?>
-            `
+            ?>`
         }
         btn17.onclick = function() { // Edytuj Produkt
             elRendered.innerHTML = ""
             elRendered.innerHTML =  `
             <?php 
                 $user->wyswietlEdytujProdukt();
-            ?>
-            `
+            ?>`
         }
         btn18.onclick = function() { // Pokaż Produkt
             elRendered.innerHTML = ""
             elRendered.innerHTML =  `
             <?php 
                 $user->pokazProdukt();
-            ?>
-            `
+            ?>`
         }
     </script>
    </body>
