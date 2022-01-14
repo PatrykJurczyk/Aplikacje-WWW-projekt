@@ -41,20 +41,20 @@
     </section>
 
     <?php
-      // Importowanie plików zawierających metody potrzebne do poprawnego działania dodawania nowych stron. 
       error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
       include './cfg.php';
       include './showpage.php';
       include './admin/admin.php';
       $con = new Config("localhost", "root", "", "moja_strona");
       $db = $con->connection(); $pokazstrone = new PokazStrone($db);
-      $user = new Admin($db); $user->logout();
+      $user = new Admin($db);
+      $user->logout();
+      $user->pokazProduktNaSklepie();
       if($_GET['idp'] == '/') $page = $pokazstrone->PokazPodstrone(1);
       if($_GET['idp'] == 'filmy') $page = $pokazstrone->PokazPodstrone(2);
       if($_GET['idp'] == 'pierwszy-lot') $page = $pokazstrone->PokazPodstrone(4);
       if($_GET['idp'] == 'rekordy') $page = $pokazstrone->PokazPodstrone(5);
       if($_GET['idp'] == 'uczestnicy') $page = $pokazstrone->PokazPodstrone(6);
-      // if($_GET['idp'] == 'kontakt') $page = $pokazstrone->PokazPodstrone(3);
       if (file_exists($page)) { include($page); } 
       else { echo "$page"; } 
     ?>

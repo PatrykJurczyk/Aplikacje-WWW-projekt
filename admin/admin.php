@@ -630,7 +630,51 @@
             </form>";
         }
 
+        // Strona sklep
 
+        function pokazProduktNaSklepie(){
+            $query = "SELECT * FROM produkty";
+            $result = $this->db->query($query);
+            echo '<h1 class="tytulSklep">Sklep</h1>';
+            while($row = mysqli_fetch_array($result)){
+                if($row['status_dostepnosci'] == 1){
+                    $status = "Dostępny";
+                }else{
+                    $status = "Niedostępny";
+                }
+                echo "
+                    <table class='productSklep'>
+                        <tr>
+                            <td class='nazwa'>
+                                <span>".$row['tytul']."</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='obraz'>
+                                <img style='width: 200px' src=".$row['zdjecie'].">
+                            </td>
+                            <td class='inforamcje'>
+                                <p>Cena netto: ".$row['cena_netto']."zł</p>
+                                <p>Podatek VAT: ".$row['podatek_vat']."%</p>
+                                <p>Ilość sztuk: ".$row['ilosc_sztuk']."</p>
+                                <p>Status: ".$status."</p>
+                                <p>Kategoria: ".$row['kategoria']."</p>
+                            </td>
+                            <td class='przycisk'>
+                                <div class='btn-sklep'> 
+                                    <input id='' name='' type='submit' value='Dodaj do koszyka'/>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='desc'>
+                                <h3>Opis</h3>
+                                <div>".$row['opis']."</div>
+                            </td>
+                        </tr>
+                    </table>";
+            }
+        }
 
 
 

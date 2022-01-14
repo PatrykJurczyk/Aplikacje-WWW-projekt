@@ -1,0 +1,60 @@
+.tytulSklep{
+    margin: 0;
+    padding-top: 100px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+.productSklep{
+    background-color: rgb(37, 37, 37);
+    border-radius: 50px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    max-width: 80%;
+}
+
+.productSklep td{
+    display: inline-block;
+}
+
+.nazwa{
+    font-size: 25px;
+    font-weight: bold;
+    margin: 20px 50px;
+}
+
+.obraz{
+    margin: 0 50px;
+}
+
+.informacje span{
+    margin: 0 10px;
+}
+
+.przycisk{
+    margin: 0 50px;
+    vertical-align: bottom;
+    display: flex !important;
+    justify-content: flex-end;
+}
+
+.desc{
+    max-width: 70%;
+    margin: 0 50px;
+    margin-bottom: 20px;
+}
+
+h3{
+    margin-top: 0;
+}
+
+.btn-sklep input{
+    padding: 15px 45px;
+    background: linear-gradient(to right, #0037ff, #3c4977);
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+}
