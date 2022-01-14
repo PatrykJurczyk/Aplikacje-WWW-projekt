@@ -22,14 +22,14 @@
             $user->ListaPodstron();
             $user->WywolajEdit();
             $user->dodajnowabutton();
-            $user->przejdznasklepbutton();
+            $user->przejdzdokategoriibutton();
          ?>
          <div class="adminPanel">
             <form name="form2" method="post">
                <input class="btn bt" name="submit10" type="submit" id="submit10" value="Dodaj Podstronę">
                <input class="btn pos1" name="submit2" type="submit" id="submit2" value="Wyloguj">
                <input class="btn bt" name="submit9" type="submit" id="submit9" value="Powrót">
-               <input class="btn pos2" name="submit5" type="submit" id="submit5" value="Sklep">
+               <input class="btn pos2" name="submit5" type="submit" id="submit5" value="Kategorie">
             </form>
          </div>   
       </div>

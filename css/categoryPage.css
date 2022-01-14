@@ -1,0 +1,88 @@
+body {
+  background-color: grey;
+  font-family: "Rubik", sans-serif !important;
+}
+
+.shopPanel input {
+  padding: 10px 30px;
+  background: linear-gradient(to right, #0037ff, #3c4977);
+  color: #fff;
+  font-size: 15px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.shopPanel input:hover {
+  color: red;
+  border: 1px solid #222942;
+  padding: 9px 29px;
+  opacity: 0.95;
+}
+.btnShop {
+  display: flex;
+  justify-content: center;
+}
+
+.btnShop > .btn1 {
+  margin: 10px;
+  align-self: center;
+}
+
+/* Drzewo Pokaż kategorie*/
+
+.tree {
+  text-align: center;
+  font-size: 38px;
+  font-weight: bold;
+}
+
+.listTree ul li {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.listTree > ul > li {
+  font-style: 25px;
+  font-weight: bold;
+}
+
+.listTree {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+.tableCat th {
+  padding: 0 20px;
+}
+
+.tableCat {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Edytuj kategorie */
+
+.editCategory {
+  display: flex;
+  justify-content: center;
+}
+
+.editCategory div #idCat {
+  width: 50px;
+}
+
+.editCategory div #matka {
+  width: 75px;
+}
+
+.editCategory div #nazwa {
+  width: 125px;
+  text-align: center;
+}
