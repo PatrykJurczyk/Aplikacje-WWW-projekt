@@ -34,8 +34,6 @@
         $user->UsunProdukt();
         $user->EdytujProdukt();
       ?>
-
-
     <script type="text/JavaScript">
         const elRendered = document.querySelector('.elemet-rendered');
         const btn15 = document.querySelector('#submit15');
