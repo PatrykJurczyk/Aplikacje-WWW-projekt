@@ -630,7 +630,13 @@
             </form>";
         }
 
-        // Strona sklep
+        // Strona sklep + koszyk
+
+        function pokazKoszyk() {
+            if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['pokazKoszyk'])) {
+                header("Location: ./koszyk.php");
+            }
+        }
 
         function pokazProduktNaSklepie(){
             $query = "SELECT * FROM produkty";
@@ -643,56 +649,49 @@
                     $status = "Niedostępny";
                 }
                 echo "
-                    <table class='productSklep'>
-                        <tr>
-                            <td class='nazwa'>
-                                <span>".$row['tytul']."</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class='obraz'>
-                                <img style='width: 200px' src=".$row['zdjecie'].">
-                            </td>
-                            <td class='inforamcje'>
-                                <p>Cena netto: ".$row['cena_netto']."zł</p>
-                                <p>Podatek VAT: ".$row['podatek_vat']."%</p>
-                                <p>Ilość sztuk: ".$row['ilosc_sztuk']."</p>
-                                <p>Status: ".$status."</p>
-                                <p>Kategoria: ".$row['kategoria']."</p>
-                            </td>
-                            <td class='przycisk'>
-                                <div class='btn-sklep'> 
-                                    <input id='' name='' type='submit' value='Dodaj do koszyka'/>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class='desc'>
-                                <h3>Opis</h3>
-                                <div>".$row['opis']."</div>
-                            </td>
-                        </tr>
-                    </table>";
+                <table class='productSklep'>
+                    <tr>
+                        <td class='nazwa'>
+                            <p>".$row['tytul']."</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='obraz'>
+                            <img style='width: 200px' src=".$row['zdjecie'].">
+                        </td>
+                        <td class='inforamcje'>
+                            <p>Cena netto: ".$row['cena_netto']."zł</p>
+                            <p>Podatek VAT: ".$row['podatek_vat']."%</p>
+                            <p>Ilość sztuk: ".$row['ilosc_sztuk']."</p>
+                            <p>Status: ".$status."</p>
+                            <p>Kategoria: ".$row['kategoria']."</p>
+                        </td>
+                        <td class='desc'>
+                            <h3>Opis</h3>
+                            <div>".$row['opis']."</div>
+                        </td>
+                        <td class='przycisk'>
+                            <div class='btn-sklep'>
+                                <form action='dodajProdukt.php' method='post'>
+                                    <label for='qty'>Ilość sztuk: </label>
+                                    <input type='number' name='qty' min='1' max='".$row['ilosc_sztuk']."' id='qty' value='1'>
+                                    <input type='hidden' name='podatek' value='".$row['podatek_vat']."'/>
+                                    <input type='hidden' name='id' value='".$row['id']."'/>
+                                    <input type='hidden' name='tytul' value='".$row['tytul']."'/>
+                                    <input type='hidden' name='cena' value='".$row['cena_netto']."'/>
+                                    <input type='hidden' name='zdjecie' value='".$row['zdjecie']."'/>
+                                    <input type='hidden' name='iloscSztuk' value='".$row['ilosc_sztuk']."'/>
+                                    <input type='submit' name='addCard' value='Dodaj do koszyka' />
+                                </form>
+                                <form action='koszyk.php' method='post'>
+                                    <input type='submit' id='pokazKoszyk' name='pokazKoszyk'  value='Pokaż koszyk' />
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                </table>";
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

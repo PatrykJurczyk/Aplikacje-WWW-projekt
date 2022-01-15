@@ -4,20 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="/aplikacje_www_projekt/css/style.css"
-      type="text/css"
-    />
-    <link
-      rel="stylesheet"
-      href="/aplikacje_www_projekt/css/shop.css"
-      type="text/css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="/aplikacje_www_projekt/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="/aplikacje_www_projekt/css/koszyk.css" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <title>Formularz kontaktowy</title>
   </head>
   <body>
@@ -39,6 +28,7 @@
         <a href="listSubpage.php" class="admin">Admin</a>
       </form>
     </section>
+
     <?php
       error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
       include './cfg.php';
@@ -48,7 +38,6 @@
       $db = $con->connection(); $pokazstrone = new PokazStrone($db);
       $user = new Admin($db);
       $user->logout();
-      $user->pokazProduktNaSklepie(); 
       if($_GET['idp'] == '/') $page = $pokazstrone->PokazPodstrone(1);
       if($_GET['idp'] == 'filmy') $page = $pokazstrone->PokazPodstrone(2);
       if($_GET['idp'] == 'pierwszy-lot') $page = $pokazstrone->PokazPodstrone(4);
@@ -56,6 +45,9 @@
       if($_GET['idp'] == 'uczestnicy') $page = $pokazstrone->PokazPodstrone(6);
       if (file_exists($page)) { include($page); } 
       else { echo "$page"; } 
+    ?>
+    <?php
+      include('wyswitlKoszyk.php');
     ?>
   </body>
 </html>

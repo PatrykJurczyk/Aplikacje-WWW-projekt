@@ -20,7 +20,7 @@
 .nazwa{
     font-size: 25px;
     font-weight: bold;
-    margin: 20px 50px;
+    margin: 0px 50px;
 }
 
 .obraz{
@@ -39,13 +39,17 @@
 }
 
 .desc{
-    max-width: 70%;
+    max-width: 50%;
     margin: 0 50px;
     margin-bottom: 20px;
 }
 
 h3{
     margin-top: 0;
+}
+
+.btn-sklep form{
+    display: inline-block;
 }
 
 .btn-sklep input{
@@ -57,4 +61,16 @@ h3{
     border-radius: 50px;
     cursor: pointer;
     font-weight: bold;
+    width: 250px;
+    margin-bottom: 20px;
+}
+
+.btn-sklep input:first-child{
+    margin-right: 10px;
+}
+
+#qty{
+    text-align: center;
+    padding: 15px 15px;
+    width: 100px;
 }
