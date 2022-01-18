@@ -55,7 +55,6 @@
                 echo "<input type='hidden' name='name5' value='".$iloscS."'/>";
                 echo "<input type='hidden' name='numer' value='".$products[6]."'/>";
                 echo "<input type='hidden' name='pom' value='".$licz."'/>";
-                // echo "<td><input type='submit' name='event' value='Update' class=''></td>";
                 echo "<td><input type='submit' name='event' value='Delete' class=''></td>";
                 echo "<td><input type='submit' name='event' value='Wróć na sklep' class=''></td>";
               echo "</form>";
