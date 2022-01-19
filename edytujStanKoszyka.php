@@ -1,14 +1,8 @@
 <?php
     session_start();
 
-
-    $pom = $_POST['pom'];
-    $pom = $pom - 2;
-
-    $_SESSION['count'] = $pom;
-
+    $_SESSION['count'] = -1;
     $event = $_POST['event'];
-
     $numer = $_POST['numer'];
 
     $qty = $_POST['name3'];

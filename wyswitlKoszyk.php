@@ -15,8 +15,8 @@
           <th>Cena</th>
           <th>Ilość</th>
           <th>Całkowita cena</th>
-          <th>Update</th>
           <th>Delete</th>
+          <th>Wróć na sklep</th>
         </tr>
       </thead>
       <tbody>";
